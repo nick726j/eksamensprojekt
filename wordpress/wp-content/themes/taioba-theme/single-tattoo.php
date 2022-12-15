@@ -14,6 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header();
 
-test single
+test
 
 get_footer();
