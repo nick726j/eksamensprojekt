@@ -108,7 +108,7 @@ function visTattoo(tattooData) {
   const popop = document.querySelector("#popop");
   popop.style.display = "flex";
 
-  popop.querySelector("img").src = tattooData.billede;
+  popop.querySelector("img").src = tattoo.billede.guid;
   popop.querySelector("p").textContent = tattooData.artist;
 
 }
