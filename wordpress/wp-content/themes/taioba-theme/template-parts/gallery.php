@@ -91,15 +91,17 @@ if(filterTattoo == "alle" || tattoo.categories.includes(parseInt(filterTattoo)))
         // .querySelector("article")
         // .addEventListener("click", () => {location.href = tattoo.link;});
       container.appendChild(klon);
+	  
 }
   })
+  document
+  .querySelector("#popop")
+  .addEventListener("click", () => (popop.style.display = "none"));
 
 }
 
 // --------------------------- POPOP -------------------------//
-document
-  .querySelector("#popop")
-  .addEventListener("click", () => (popop.style.display = "none"));
+
 
 function visTattoo(tattooData) {
   console.log(tattooData);
