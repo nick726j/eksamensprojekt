@@ -20,14 +20,49 @@ while ( have_posts() ) :
       <p class="artist"></p>
     </article>
 </template>
-	
+	<!-- <---------------- STYLING (POPOP) ------------------>
+  <style>
+#popop {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow: scroll;
+  border: solid 2px black;
+}
+
+#popop-article {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 1em;
+  width: fit-content;
+  margin: auto;
+  background-color: #ffffff;
+  height: fit-content;
+  box-shadow: none;
+}
+</style>
+<!-- <---------------- STYLING (POPOP) ------------------>
+
+
 <!-- <---------------- POPOP ------------------>
- <div id="popop">
+      <section id="popop">
+        <article id="popop-article" class="article">
+          <section class="popop">
+            <img class="img" src="" alt="" />
+            <p class="artist"></p>
+          </section>
+        </article> 
+<!-- <div id="popop">
     <article>
       <img src="" alt="" />
       <p></p>
     </article>
-  </div>
+  </div> -->
 <!-- <---------------- POPOP ------------------>
 
 <main>
