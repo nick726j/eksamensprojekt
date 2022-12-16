@@ -87,21 +87,20 @@ if(filterTattoo == "alle" || tattoo.categories.includes(parseInt(filterTattoo)))
       klon.querySelector("img").src = tattoo.billede.guid;
       klon.querySelector(".artist").textContent = tattoo.artist;
 	//   Er det denne kode, der f
-        //   klon
-        // .querySelector("article")
-        // .addEventListener("click", () => {location.href = tattoo.link;});
+          klon
+        .querySelector("article")
+        .addEventListener("click", visTattoo);
       container.appendChild(klon);
 	  
 }
   })
-  document
-  .querySelector("#popop")
-  .addEventListener("click", () => (popop.style.display = "none"));
-
+ 
 }
 
 // --------------------------- POPOP -------------------------//
-
+ document
+  .querySelector("#popop")
+  .addEventListener("click", () => (popop.style.display = "none"));
 
 function visTattoo(tattooData) {
   console.log(tattooData);
