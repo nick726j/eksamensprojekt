@@ -89,7 +89,7 @@ if(filterTattoo == "alle" || tattoo.categories.includes(parseInt(filterTattoo)))
 	//   Er det denne kode, der f
           klon
         .querySelector("article")
-        .addEventListener("click", visTattoo);
+        .addEventListener("click", () => visTattoo(tattoo));
       container.appendChild(klon);
 	  
 }
@@ -102,13 +102,13 @@ if(filterTattoo == "alle" || tattoo.categories.includes(parseInt(filterTattoo)))
   .querySelector("#popop")
   .addEventListener("click", () => (popop.style.display = "none"));
 
-function visTattoo(tattooData) {
-  console.log("tattooData");
+function visTattoo(tattoo) {
+  console.log("tattoo");
   const popop = document.querySelector("#popop");
   popop.style.display = "flex";
 
-  popop.querySelector("img").src = tattooData.billede.guid;
-  popop.querySelector("p").textContent = tattooData.artist;
+  popop.querySelector("img").src = tattoo.billede.guid;
+  popop.querySelector("p").textContent = tattoo.artist;
 
 }
 // --------------------------- POPOP -------------------------//
