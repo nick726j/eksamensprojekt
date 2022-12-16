@@ -22,12 +22,12 @@ while ( have_posts() ) :
 </template>
 	
 <!-- <---------------- POPOP ------------------>
- <!-- <div id="popop">
+ <div id="popop">
     <article>
       <img src="" alt="" />
       <p></p>
     </article>
-  </div> -->
+  </div>
 <!-- <---------------- POPOP ------------------>
 
 <main>
@@ -86,29 +86,30 @@ if(filterTattoo == "alle" || tattoo.categories.includes(parseInt(filterTattoo)))
       let klon = temp.cloneNode(true).content;
       klon.querySelector("img").src = tattoo.billede.guid;
       klon.querySelector(".artist").textContent = tattoo.artist;
-    //       klon
-    //     .querySelector("article")
-    //     .addEventListener("click", () => {location.href = tattoo.link;});
-    //   container.appendChild(klon);
+	//   Er det denne kode, der f
+        //   klon
+        // .querySelector("article")
+        // .addEventListener("click", () => {location.href = tattoo.link;});
+      container.appendChild(klon);
 }
   })
 
 }
 
 // --------------------------- POPOP -------------------------//
-// document
-//   .querySelector("#popop")
-//   .addEventListener("click", () => (popop.style.display = "none"));
+document
+  .querySelector("#popop")
+  .addEventListener("click", () => (popop.style.display = "none"));
 
-// function visTattoo(tattooData) {
-//   console.log(tattooData);
-//   const popop = document.querySelector("#popop");
-//   popop.style.display = "flex";
+function visTattoo(tattooData) {
+  console.log(tattooData);
+  const popop = document.querySelector("#popop");
+  popop.style.display = "flex";
 
-//   popop.querySelector("img").src = tattooData.billede;
-//   popop.querySelector("p").textContent = tattooData.artist;
+  popop.querySelector("img").src = tattooData.billede;
+  popop.querySelector("p").textContent = tattooData.artist;
 
-// }
+}
 // --------------------------- POPOP -------------------------//
 
 getJson();
