@@ -14,20 +14,106 @@ while ( have_posts() ) :
 	?>
 
 <main id="content" <?php post_class( 'site-main' ); ?> role="main">
-	<?php if ( apply_filters( 'hello_elementor_page_title', true ) ) : ?>
-		<header class="page-header">
-			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-		</header>
-	<?php endif; ?>
-	<div class="page-content">
-		<?php the_content(); ?>
-		<div class="post-tags">
-			<?php the_tags( '<span class="tag-links">' . __( 'Tagged ', 'hello-elementor' ), null, '</span>' ); ?>
-		</div>
-		<?php wp_link_pages(); ?>
-	</div>
+<template>
+    <article>
+      <img src="" alt="" />
+      <p class="artist"></p>
+    </article>
+</template>
+	
+<!------------------ POPOP ------------------>
+ <!-- <div id="popop">
+    <article>
+      <img src="" alt="" />
+      <p></p>
+    </article>
+  </div> -->
+<!------------------ POPOP ------------------>
 
-	<?php comments_template(); ?>
+<main>
+  <nav id="filtrering">
+    <button data-tattoo="alle">Alle</button>
+  </nav>
+  <section class="tattoocontainer">
+  </section>
+</main>
+
+
+	<script>
+    let tattoos;
+    let categories;
+    let filterTattoo = "alle";
+    
+    const url = "https://apmedia.dk/kea/eksamensprojekt/wordpress/wp-json/wp/v2/tattoo?per_page=100";
+    const catUrl = "https://apmedia.dk/kea/eksamensprojekt/wordpress/wp-json/wp/v2/categories";
+
+
+async function getJson() {
+  const data = await fetch(url);
+  const catData = await fetch(catUrl);
+  tattoos = await data.json();
+  categories = await catData.json();
+ console.log(categories);
+  visTattoos();
+  opretKnapper();
+}
+
+function opretKnapper(){
+  categories.forEach(cat => {document.querySelector("#filtrering").innerHTML += `<button class="filter" data-tattoo="${cat.id}">${cat.name}</button>`}
+  )
+  addEventListenersToButtons();
+}
+
+function addEventListenersToButtons(){
+  document.querySelectorAll("#filtrering button").forEach(elm =>{
+    elm.addEventListener("click", filtrering);
+  })
+}
+
+function filtrering(){
+filterTattoo = this.dataset.tattoo;
+console.log(filterTattoo);
+
+visTattoos();
+}
+
+function visTattoos() {
+  let temp = document.querySelector("template");
+  let container = document.querySelector(".tattoocontainer");
+  container.innerHTML = "";
+  tattoos.forEach((tattoo) => {
+if(filterTattoo == "alle" || tattoo.categories.includes(parseInt(filterTattoo))){
+      let klon = temp.cloneNode(true).content;
+      klon.querySelector("img").src = tattoo.billede.guid;
+      klon.querySelector(".artist").textContent = tattoo.artist;
+          klon
+        .querySelector("article")
+        .addEventListener("click", () => {location.href = tattoo.link;});
+      container.appendChild(klon);
+}
+  })
+
+}
+
+// --------------------------- POPOP -------------------------//
+// document
+//   .querySelector("#popop")
+//   .addEventListener("click", () => (popop.style.display = "none"));
+
+// function visTattoo(tattooData) {
+//   console.log(tattooData);
+//   const popop = document.querySelector("#popop");
+//   popop.style.display = "flex";
+
+//   popop.querySelector("img").src = tattooData.billede;
+//   popop.querySelector("p").textContent = tattooData.artist;
+
+// }
+// --------------------------- POPOP -------------------------//
+
+getJson();
+
+	</script>
 </main>
 
 	<?php
