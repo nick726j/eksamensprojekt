@@ -103,7 +103,7 @@ if(filterTattoo == "alle" || tattoo.categories.includes(parseInt(filterTattoo)))
   .addEventListener("click", () => (popop.style.display = "none"));
 
 function visTattoo(tattooData) {
-  console.log(tattooData);
+  console.log("tattooData");
   const popop = document.querySelector("#popop");
   popop.style.display = "flex";
 
