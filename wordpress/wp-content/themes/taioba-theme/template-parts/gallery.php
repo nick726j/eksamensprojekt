@@ -27,24 +27,23 @@ while ( have_posts() ) :
 max-width: 1140px;
     margin-left: auto;
     margin-right: auto;    }
-#popop {
-  display: none;
-  position: fixed;
-  justify-content: center;
-  align-items: center;
-  top: 0;
+#popop { /* Pop-up-vinduet åbnes, når der klikkes på en person */
+  display: none; /* Pop-up-vinduet er som udgangspunk lukket */
+  position: fixed; /* Pop-up-vinduet er det samme sted - også selvom der bliver scrollet*/
+  justify-content: center; /* Inhold i pop-up-vinduet er centreret */
+  align-items: center; /* Inhold i pop-up-vinduet er centreret */
+  top: 0; /***** Selve pop-up-vinduet er placeret i midten af skærmen *****/
   bottom: 0;
   left: 0;
-  right: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.7);
-  overflow: scroll;
-  border: solid 2px black;
+  right: 0; /**** Selve pop-up-vinduet er placeret i midten af skærmen ****/
+  width: 100vw; /* Pop-up-vinduet fylder hele skærmen */
+  height: 100vh;/ /* Pop-up-vinduet fylder hele skærmen */
+  background-color: rgba(0, 0, 0, 0.7); /* Baggrunden rundt om pop-up-vinduet er bliver mørk, men gennemsigtig */
+  border: solid 2px black; /* Giver pop-up-vinduet en ramme */
 }
 
-#popop article {
-  display: flex;
+#popop article { /*Pop-up-vinduets indhold */
+  display: flex; 
   justify-content: center;
   flex-direction: column;
   padding: 1em;
