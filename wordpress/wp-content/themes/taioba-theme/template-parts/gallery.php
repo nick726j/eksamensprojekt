@@ -188,7 +188,7 @@ function visTattoos() {
       let klon = temp.cloneNode(true).content; //html template klones og fyldes med indhold
       klon.querySelector("img").src = tattoo.billede.guid;
       klon.querySelector("article").addEventListener("click", () => visTattoo(tattoo));
-      container.appendChild(klon);
+      container.appendChild(klon); // Klonen tilføjes til DOM
     }
   })
 }
