@@ -187,15 +187,9 @@ function visTattoos() {
     if(filterTattoo == "alle" || tattoo.categories.includes(parseInt(filterTattoo))){
       let klon = temp.cloneNode(true).content; //html template klones og fyldes med indhold
       klon.querySelector("img").src = tattoo.billede.guid;
-      console.log(tattoo)
-      // klon.querySelector(".artist").textContent = tattoo.artist;
-	//   Er det denne kode, der f
-          klon
-        .querySelector("article")
-        .addEventListener("click", () => visTattoo(tattoo));
+      klon.querySelector("article").addEventListener("click", () => visTattoo(tattoo));
       container.appendChild(klon);
-	  
-}
+    }
   })
 }
 
